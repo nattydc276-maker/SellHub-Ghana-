@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SellHub Ghana</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f5f5;
+      color: #222;
+    }
+
+    header {
+      background: #008000;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 28px;
+    }
+
+    header p {
+      margin-top: 6px;
+    }
+
+    .search {
+      padding: 15px;
+      background: white;
+    }
+
+    .search input {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .categories {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 15px;
+      background: white;
+    }
+
+    .categories button {
+      border: none;
+      padding: 10px 15px;
+      border-radius: 20px;
+      background: #eee;
+      white-space: nowrap;
+    }
+
+    .products {
+      padding: 15px;
+    }
+
+    .products h2 {
+      margin-bottom: 15px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .card .photo {
+      height: 130px;
+      background: #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 45px;
+    }
+
+    .card-content {
+      padding: 10px;
+    }
+
+    .card h3 {
+      font-size: 16px;
+      margin-bottom: 7px;
+    }
+
+    .price {
+      color: #008000;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .location {
+      color: #777;
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    .contact {
+      width: 100%;
+      border: none;
+      background: #008000;
+      color: white;
+      padding: 9px;
+      border-radius: 6px;
+    }
+
+    .sell {
+      margin: 20px 15px;
+      padding: 18px;
+      background: #ffcc00;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .sell button {
+      margin-top: 10px;
+      background: #222;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 7px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #222;
+      color: white;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>🇬🇭 SellHub Ghana</h1>
+    <p>Buy • Sell • Connect</p>
+  </header>
+
+  <div class="search">
+    <input type="text" id="search" placeholder="Search phones, cars, jobs...">
+  </div>
+
+  <div class="categories">
+    <button>All</button>
+    <button>Phones</button>
+    <button>Fashion</button>
+    <button>Cars</button>
+    <button>Electronics</button>
+    <button>Home</button>
+    <button>Jobs</button>
+    <button>Services</button>
+  </div>
+
+  <section class="products">
+    <h2>Featured Listings</h2>
+
+    <div class="grid" id="products">
+
+      <div class="card">
+        <div class="photo">📱</div>
+        <div class="card-content">
+          <h3>iPhone 13</h3>
+          <p class="price">GH₵ 4,500</p>
+          <p class="location">📍 Accra</p>
+          <button class="contact" onclick="contactSeller('iPhone 13')">
+            Contact Seller
+          </button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="photo">🚗</div>
+        <div class="card-content">
+          <h3>Clean Toyota Camry</h3>
+          <p class="price">GH₵ 85,000</p>
+          <p class="location">📍 Kumasi</p>
+          <button class="contact" onclick="contactSeller('Toyota Camry')">
+            Contact Seller
+          </button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="photo">👟</div>
+        <div class="card-content">
+          <h3>Designer Sneakers</h3>
+          <p class="price">GH₵ 450</p>
+          <p class="location">📍 Tema</p>
+          <button class="contact" onclick="contactSeller('Designer Sneakers')">
+            Contact Seller
+          </button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="photo">💻</div>
+        <div class="card-content">
+          <h3>HP Laptop</h3>
+          <p class="price">GH₵ 3,200</p>
+          <p class="location">📍 Accra</p>
+          <button class="contact" onclick="contactSeller('HP Laptop')">
+            Contact Seller
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="sell">
+    <h2>Want to sell something?</h2>
+    <p>List your product on SellHub Ghana.</p>
+    <button onclick="sellItem()">Post an Item</button>
+  </div>
+
+  <footer>
+    <p>© 2026 SellHub Ghana</p>
+    <p>Buy. Sell. Connect.</p>
+  </footer>
+
+  <script>
+    function contactSeller(item) {
+      alert("You selected: " + item + ". Seller contact will be available soon.");
+    }
+
+    function sellItem() {
+      alert("Seller registration will be added soon!");
+    }
+
+    document.getElementById("search").addEventListener("input", function() {
+      let search = this.value.toLowerCase();
+      let cards = document.querySelectorAll(".card");
+
+      cards.forEach(function(card) {
+        card.style.display =
+          card.innerText.toLowerCase().includes(search)
+          ? "block"
+          : "none";
+      });
+    });
+  </script>
+
+</body>
+</html>
